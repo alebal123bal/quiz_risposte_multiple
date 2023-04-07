@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Back"
+        android:layout_alignLeft="@+id/linear_layout_id">
+    </Button>
+
+    <TextView
+        android:id="@+id/question_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question number"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:layout_alignBaseline="@+id/back_button">
+    </TextView>
+
+    <TextView
+        android:id="@+id/question_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linear_layout_id"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="This is the question"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linear_layout_id"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer1"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Answer1"
+            android:textColor="@color/black">
+        </Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer2"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Answer2"
+            android:textColor="@color/black">
+        </Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer3"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Answer3"
+            android:textColor="@color/black">
+        </Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer4"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Answer4"
+            android:textColor="@color/black">
+        </Button>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_id"
+        android:text="submit"
+        android:backgroundTint="@color/purple_200"
+        android:layout_below="@+id/linear_layout_id"
+        android:layout_marginTop="40dp"
+        />
+</RelativeLayout>
