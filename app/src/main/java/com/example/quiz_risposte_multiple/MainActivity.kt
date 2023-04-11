@@ -1,23 +1,22 @@
 package com.example.quiz_risposte_multiple
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
-//Hello GIT
-//1
-//2
 
 //This class implements View.OnClickListener just to override its clicking method
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     var question_index : Int = 0
     var toggle_correct: Boolean = false
     var score: Int = 0
+
+    var clicked_stack = ArrayDeque<Int>(5)
 
     lateinit var all_textBoxes: List<TextView>
     lateinit var all_buttons: List<TextView>
@@ -49,6 +48,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View){
+        //TODO: limit stack size
+        clicked_stack.addLast(view.id)
+        Log.d(TAG, clicked_stack.last().toString())
+
         when(view.id){
             R.id.answer1 -> {
                 treat_clicked_button(0)
@@ -135,6 +138,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     fun check_correctness(idx: Int): Boolean{
         return questionAnswer.answers[question_index][idx].equals(questionAnswer.correct[question_index])
+    }
+
+    companion object {
+        const val TAG: String = "MainActivity"
     }
 }
 
