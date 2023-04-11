@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     score++
                 }
                 if(question_index < questionAnswer.question.size-1){
-                    questionAnswer.answered[question_index]=true
                     question_index++
                     whiten_buttons()
                     setup_text(question_index)
@@ -79,7 +78,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.back_button->{
                 if(question_index>0){
-                    questionAnswer.answered[question_index] = false
+                    //If last time you hit correctly, and you wanna redo, I remove one point of score
+                    //No decurting points if you did not answer correctly
+
                     /* TODO: clear score by creating a stack of last selected buttons
                     *   so I'm able to reconstructo history of moves and clear accordingly */
 
@@ -94,7 +95,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     fun treat_clicked_button(idx: Int){
         highlight_button(idx)
         toggle_correct = false
-        if(check_correctness(idx) and !(questionAnswer.answered[idx])){
+        if(check_correctness(idx)){
             toggle_correct = true
         }
     }

@@ -18,7 +18,4 @@ public class questionAnswer {
             "21",
             "Yes"
     };
-    public static boolean answered[] = {
-            false, false, false, false
-    };
 }
