@@ -80,7 +80,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.back_button->{
                 if(question_index>0){
                     questionAnswer.answered[question_index] = false
-                    //TODO: clear score
+                    /* TODO: clear score by creating a stack of last selected buttons
+                    *   so I'm able to reconstructo history of moves and clear accordingly */
+
                     question_index--
                     whiten_buttons()
                     setup_text(question_index)
