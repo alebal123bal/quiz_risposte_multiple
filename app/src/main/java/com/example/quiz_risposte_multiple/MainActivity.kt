@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 
 //Hello GIT
+//1
 
 //This class implements View.OnClickListener just to override its clicking method
 class MainActivity : AppCompatActivity(), View.OnClickListener {
