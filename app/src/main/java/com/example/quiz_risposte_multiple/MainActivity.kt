@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     var score: Int = 0
 
     var clicked_stack = ArrayDeque<Int>(5)
+    var last_clicked_answer: Int = 0
+    var enable_submit: Boolean = false
 
     lateinit var all_textBoxes: List<TextView>
     lateinit var all_buttons: List<TextView>
@@ -48,47 +50,63 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(view: View){
-        //TODO: limit stack size
-        clicked_stack.addLast(view.id)
-        Log.d(TAG, clicked_stack.last().toString())
-
         when(view.id){
             R.id.answer1 -> {
+                enable_submit = true
+                last_clicked_answer = 0
                 treat_clicked_button(0)
             }
             R.id.answer2 -> {
+                enable_submit = true
+                last_clicked_answer = 1
                 treat_clicked_button(1)
             }
             R.id.answer3 -> {
+                enable_submit = true
+                last_clicked_answer = 2
                 treat_clicked_button(2)
             }
             R.id.answer4 -> {
+                enable_submit = true
+                last_clicked_answer = 3
                 treat_clicked_button(3)
             }
             R.id.submit_id -> {
-                if(toggle_correct){
-                    score++
-                }
-                if(question_index < questionAnswer.question.size-1){
-                    question_index++
-                    whiten_buttons()
-                    setup_text(question_index)
-                }
-                else{
-                    val intent = Intent(this, LastActivity::class.java)
-                    startActivity(intent)
+                //TODO: make it unclickable if no answer is selected
+                if(enable_submit){
+                    clicked_stack.addLast(last_clicked_answer)
+
+                    if(toggle_correct){
+                        score++
+                    }
+                    if(question_index < questionAnswer.question.size-1){
+                        question_index++
+                        whiten_buttons()
+                        setup_text(question_index)
+                    }
+                    else{
+                        val intent = Intent(this, LastActivity::class.java)
+                        startActivity(intent)
+                    }
+                    enable_submit = false
                 }
             }
             R.id.back_button->{
                 if(question_index>0){
+                    enable_submit = false
+                    question_index--
+                    val popped = clicked_stack.removeLast()
+                    Log.d("MainActivity", "Popped is $popped")
                     //If last time you hit correctly, and you wanna redo, I remove one point of score
                     //No decurting points if you did not answer correctly
-
-                    /* TODO: clear score by creating a stack of last selected buttons
-                    *   so I'm able to reconstructo history of moves and clear accordingly */
-
-                    question_index--
+                    //Una volta che ho clickato submit, mi sono salvato l'ultimo bottone valido
+                    //che è stato selezionato tra i quattro disponibili
+                    //Essi hanno un id crescente uno dopo l'altro
+                    if(popped == questionAnswer.correct_idx[question_index]){
+                        score-=1
+                    }
                     whiten_buttons()
+                    highlight_button(popped, ContextCompat.getColor(applicationContext, R.color.gray))
                     setup_text(question_index)
                 }
             }
@@ -96,7 +114,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun treat_clicked_button(idx: Int){
-        highlight_button(idx)
+        highlight_button(idx, ContextCompat.getColor(applicationContext, R.color.purple_200))
         toggle_correct = false
         if(check_correctness(idx)){
             toggle_correct = true
@@ -130,10 +148,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun highlight_button(idx: Int){
+    fun highlight_button(idx: Int, colorId: Int){
         val btn_list: List<Button> = get_buttons_list()
         whiten_buttons()
-        btn_list[idx].setBackgroundColor(ContextCompat.getColor(applicationContext, R.color.purple_200))
+        btn_list[idx].setBackgroundColor(colorId)
     }
 
     fun check_correctness(idx: Int): Boolean{

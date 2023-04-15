@@ -3,19 +3,32 @@ package com.example.quiz_risposte_multiple;
 public class questionAnswer {
     public static String question[] = {
             "Who owns Android?",
-            "How old are you?",
-            "Are you fine?"
+            "What's this letter: A",
+            "What's this letter: B",
+            "What's this letter: C",
+            "What's this letter: D"
     };
 
     public static String answers[][] = {
         {"Google", "Intel", "Microsoft", "Xilinx"},
-        {"10", "21", "20", "38"},
-        {"Thanks", "Yes", "No", "Prolly yes"}
+        {"A", "B", "C", "D"},
+        {"A", "B", "C", "D"},
+        {"A", "B", "C", "D"},
+        {"A", "B", "C", "D"}
     };
 
     public static String correct[] = {
         "Google",
-            "21",
-            "Yes"
+            "A",
+            "B",
+            "C",
+            "D"
+    };
+    public static int correct_idx[] = {
+            0,
+            0,
+            1,
+            2,
+            3
     };
 }
