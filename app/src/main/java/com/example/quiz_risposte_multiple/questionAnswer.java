@@ -1,7 +1,7 @@
 package com.example.quiz_risposte_multiple;
 
 public class questionAnswer {
-    public static String[] question = {
+    public static String question[] = {
             "Who owns Android?",
             "What's this letter: A",
             "What's this letter: B",
@@ -9,7 +9,7 @@ public class questionAnswer {
             "What's this letter: D"
     };
 
-    public static String[][] answers = {
+    public static String answers[][] = {
         {"Google", "Intel", "Microsoft", "Xilinx"},
         {"A", "B", "C", "D"},
         {"A", "B", "C", "D"},
@@ -17,14 +17,14 @@ public class questionAnswer {
         {"A", "B", "C", "D"}
     };
 
-    public static String[] correct = {
+    public static String correct[] = {
         "Google",
             "A",
             "B",
             "C",
             "D"
     };
-    public static int[] correct_idx = {
+    public static int correct_idx[] = {
             0,
             0,
             1,
