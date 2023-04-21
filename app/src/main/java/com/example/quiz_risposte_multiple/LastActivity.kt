@@ -1,8 +1,8 @@
-package com.example.quiz_risposte_multiple;
+package com.example.quiz_risposte_multiple
 
 import android.os.Bundle
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity
 
 class LastActivity : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?){
