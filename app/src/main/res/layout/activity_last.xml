@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width = "match_parent"
+        android:layout_width = "match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/teal_200">
+        android:orientation="vertical"
+        android:background="@color/teal_200">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/congratulations_tv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Congrats TODO score via Bundle">
-
+            android:text="@string/congrats"
+            android:background="@color/purple_500"
+            android:textSize="50sp">
+        </TextView>
+        <TextView
+            android:id="@+id/score_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/score_default"
+            android:background="@color/purple_500"
+            android:textSize="50sp">
         </TextView>
     </LinearLayout>

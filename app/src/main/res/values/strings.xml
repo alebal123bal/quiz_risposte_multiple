@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">quiz_risposte_multiple</string>
+
+    <string name="congrats">Congrats!</string>
+
+    <string name="submit">SUBMIT</string>
+
+    <string name="score_default">Score default</string>
+
 </resources>

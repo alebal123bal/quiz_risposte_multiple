@@ -89,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/submit_id"
-        android:text="submit"
+        android:text="@string/submit"
         android:backgroundTint="@color/purple_200"
         android:layout_below="@+id/linear_layout_id"
         android:layout_marginTop="40dp"

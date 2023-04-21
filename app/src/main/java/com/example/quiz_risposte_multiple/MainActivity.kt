@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     }
                     else{
                         val intent = Intent(this, LastActivity::class.java)
+                        intent.putExtra("score", score.toString())
                         startActivity(intent)
                     }
                     enableSubmit = false
