@@ -10,7 +10,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/congrats"
-            android:background="@color/purple_500"
+            android:background="@color/purple_200"
             android:textSize="50sp">
         </TextView>
         <TextView
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/score"
-            android:background="@color/purple_500"
+            android:background="@color/purple_200"
             android:textSize="50sp">
         </TextView>
     </LinearLayout>
