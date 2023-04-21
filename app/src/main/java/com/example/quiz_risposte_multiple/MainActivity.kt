@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         setupText(questionIndex)
                     }
                     else{
+                        finish()
                         val intent = Intent(this, LastActivity::class.java)
                         intent.putExtra("score", score.toString())
                         startActivity(intent)

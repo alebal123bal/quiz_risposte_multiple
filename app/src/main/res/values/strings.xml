@@ -5,6 +5,6 @@
 
     <string name="submit">SUBMIT</string>
 
-    <string name="score_default">Score default</string>
+    <string name="score">%1$s points</string>
 
 </resources>

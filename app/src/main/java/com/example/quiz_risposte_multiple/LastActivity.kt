@@ -11,7 +11,7 @@ class LastActivity : AppCompatActivity() {
 
                 val scoreTV = findViewById<TextView>(R.id.score_tv)
 
-                scoreTV.text = intent.getStringExtra("score") + " points"
+                scoreTV.text = getString(R.string.score, intent.getStringExtra("score"))
 
                 //TODO Clear old activity
         }

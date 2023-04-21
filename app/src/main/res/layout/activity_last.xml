@@ -17,7 +17,7 @@
             android:id="@+id/score_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/score_default"
+            android:text="@string/score"
             android:background="@color/purple_500"
             android:textSize="50sp">
         </TextView>
